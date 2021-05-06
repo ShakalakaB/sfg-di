@@ -1,9 +1,6 @@
 package aldora.spring.dependencyinjection;
 
-import aldora.spring.dependencyinjection.controllers.ConstructorInjectedController;
-import aldora.spring.dependencyinjection.controllers.MyController;
-import aldora.spring.dependencyinjection.controllers.PropertyInjectedController;
-import aldora.spring.dependencyinjection.controllers.SetterInjectedController;
+import aldora.spring.dependencyinjection.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -30,6 +27,10 @@ public class DependencyInjectionApplication {
 		System.out.println("\n----- constructor");
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) applicationContext.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.sayHello());
+
+		System.out.println("\n----- profile");
+		I18nController i18nController = (I18nController) applicationContext.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 	}
 
 }
