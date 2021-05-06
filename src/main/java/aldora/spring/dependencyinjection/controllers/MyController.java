@@ -1,12 +1,17 @@
 package aldora.spring.dependencyinjection.controllers;
 
+import aldora.spring.dependencyinjection.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class MyController {
-    public String sayHello() {
-        System.out.println("hello world");
+    private final GreetingService greetingService;
 
-        return "hello, folks";
+    public MyController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    public String sayHello() {
+        return greetingService.sayGreeting();
     }
 }
