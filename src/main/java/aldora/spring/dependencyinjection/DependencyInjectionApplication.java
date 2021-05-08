@@ -11,6 +11,10 @@ public class DependencyInjectionApplication {
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = SpringApplication.run(DependencyInjectionApplication.class, args);
 
+		System.out.println("\n----- which pet is best");
+		PetController petController = applicationContext.getBean("petController", PetController.class);
+		System.out.println(petController.whichPetIsTheBest());
+
 		System.out.println("\n----- primary bean");
 		MyController myController = (MyController) applicationContext.getBean("myController");
 		String greeting = myController.sayHello();
