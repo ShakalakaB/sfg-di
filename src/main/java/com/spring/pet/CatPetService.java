@@ -1,13 +1,13 @@
-package aldora.spring.dependencyinjection.services;
+package com.spring.pet;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@Profile({"dog", "default"})
-public class DogPetService implements PetService{
+@Profile("cat")
+public class CatPetService implements PetService {
     @Override
     public String getPetType() {
-        return "Dogs are the best!";
+        return "Cats are the best!";
     }
 }

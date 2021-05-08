@@ -1,4 +1,4 @@
-package aldora.spring.dependencyinjection.services;
+package com.spring.pet;
 
 public interface PetService {
     String getPetType();

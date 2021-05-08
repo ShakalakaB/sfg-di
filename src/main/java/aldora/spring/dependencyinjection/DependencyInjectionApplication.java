@@ -1,10 +1,13 @@
 package aldora.spring.dependencyinjection;
 
 import aldora.spring.dependencyinjection.controllers.*;
+import com.spring.pet.PetController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan(basePackages = {"aldora.spring.dependencyinjection", "com.spring.pet"})
 @SpringBootApplication
 public class DependencyInjectionApplication {
 

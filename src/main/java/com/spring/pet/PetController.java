@@ -1,7 +1,5 @@
-package aldora.spring.dependencyinjection.controllers;
+package com.spring.pet;
 
-import aldora.spring.dependencyinjection.services.PetService;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
