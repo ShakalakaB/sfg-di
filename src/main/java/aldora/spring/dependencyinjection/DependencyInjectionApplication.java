@@ -2,6 +2,8 @@ package aldora.spring.dependencyinjection;
 
 import aldora.spring.dependencyinjection.controllers.*;
 import aldora.spring.dependencyinjection.controllers.PetController;
+import aldora.spring.dependencyinjection.services.PrototypeBean;
+import aldora.spring.dependencyinjection.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -37,6 +39,17 @@ public class DependencyInjectionApplication {
 		System.out.println("\n----- profile");
 		I18nController i18nController = (I18nController) applicationContext.getBean("i18nController");
 		System.out.println(i18nController.sayHello());
+
+		System.out.println("\n----- bean scope");
+		SingletonBean singletonBean1 = applicationContext.getBean(SingletonBean.class);
+		System.out.println(singletonBean1.getScope());
+		SingletonBean singletonBean2 = applicationContext.getBean(SingletonBean.class);
+		System.out.println(singletonBean2.getScope());
+
+		PrototypeBean prototypeBean1 = applicationContext.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean1.getScope());
+		PrototypeBean prototypeBean2 = applicationContext.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean2.getScope());
 	}
 
 }
