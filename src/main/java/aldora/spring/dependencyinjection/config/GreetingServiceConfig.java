@@ -1,5 +1,7 @@
 package aldora.spring.dependencyinjection.config;
 
+import aldora.spring.dependencyinjection.repositories.EnglishGreetingRepository;
+import aldora.spring.dependencyinjection.repositories.EnglishGreetingRepositoryImpl;
 import aldora.spring.dependencyinjection.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,15 +18,21 @@ public class GreetingServiceConfig {
     }
 
     @Bean
-    @Profile("EN")
-    I18nEnglishGreetingService i18Service() {
-        return new I18nEnglishGreetingService();
+    @Profile({"EN", "default"})
+    I18nEnglishGreetingService i18Service(EnglishGreetingRepository englishGreetingRepository) {
+        return new I18nEnglishGreetingService(englishGreetingRepository);
     }
 
     @Bean("i18Service")
-    @Profile({"ES", "default"})
+//    @Profile({"ES", "default"})
+    @Profile("ES")
     I18nSpanishGreetingService i18nSpanishGreetingService() {
         return new I18nSpanishGreetingService();
+    }
+
+    @Bean
+    EnglishGreetingRepository englishGreetingRepository() {
+        return new EnglishGreetingRepositoryImpl();
     }
 
     @Bean
