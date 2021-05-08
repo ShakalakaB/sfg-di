@@ -3,6 +3,8 @@ package aldora.spring.dependencyinjection.config;
 import aldora.spring.dependencyinjection.repositories.EnglishGreetingRepository;
 import aldora.spring.dependencyinjection.repositories.EnglishGreetingRepositoryImpl;
 import aldora.spring.dependencyinjection.services.*;
+import com.spring.pet.PetService;
+import com.spring.pet.PetServiceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -50,4 +52,20 @@ public class GreetingServiceConfig {
         return new SetterGreetingService();
     }
 
+    @Bean
+    PetServiceFactory petServiceFactory() {
+        return new PetServiceFactory();
+    }
+
+    @Bean
+    @Profile({"dog", "default"})
+    PetService dogPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("dog");
+    }
+
+    @Bean
+    @Profile("cat")
+    PetService catPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("cat");
+    }
 }
