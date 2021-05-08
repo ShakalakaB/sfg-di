@@ -1,5 +1,6 @@
-package com.spring.pet;
+package aldora.spring.dependencyinjection.controllers;
 
+import com.spring.pet.PetService;
 import org.springframework.stereotype.Controller;
 
 @Controller
