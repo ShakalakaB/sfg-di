@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 @ConfigurationProperties("db")
 @Configuration
-public class DependencyInjectionConfig {
+public class ApplicationConfig {
     private String username;
     private String password;
     private String jdbcurl;

@@ -6,9 +6,10 @@ import aldora.spring.dependencyinjection.repositories.EnglishGreetingRepositoryI
 import aldora.spring.dependencyinjection.services.*;
 import com.spring.pet.PetService;
 import com.spring.pet.PetServiceFactory;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
+@EnableConfigurationProperties(ApplicationConstuctorConfig.class)
 @PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:dependency-injection.xml")
 @Configuration
@@ -83,11 +84,11 @@ public class GreetingServiceConfig {
 //    }
 
     @Bean
-    FakeDataSource fakeDataSource(DependencyInjectionConfig dependencyInjectionConfig) {
+    FakeDataSource fakeDataSource(ApplicationConstuctorConfig applicationConstuctorConfig) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(dependencyInjectionConfig.getUsername());
-        fakeDataSource.setPassword(dependencyInjectionConfig.getPassword());
-        fakeDataSource.setJdbcurl(dependencyInjectionConfig.getJdbcurl());
+        fakeDataSource.setUsername(applicationConstuctorConfig.getUsername());
+        fakeDataSource.setPassword(applicationConstuctorConfig.getPassword());
+        fakeDataSource.setJdbcurl(applicationConstuctorConfig.getJdbcurl());
 
         return fakeDataSource;
     }

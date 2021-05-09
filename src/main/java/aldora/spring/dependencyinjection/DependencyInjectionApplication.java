@@ -1,6 +1,7 @@
 package aldora.spring.dependencyinjection;
 
-import aldora.spring.dependencyinjection.config.DependencyInjectionConfig;
+import aldora.spring.dependencyinjection.config.ApplicationConfig;
+import aldora.spring.dependencyinjection.config.ApplicationConstuctorConfig;
 import aldora.spring.dependencyinjection.controllers.*;
 import aldora.spring.dependencyinjection.controllers.PetController;
 import aldora.spring.dependencyinjection.datasource.FakeDataSource;
@@ -60,10 +61,16 @@ public class DependencyInjectionApplication {
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcurl());
 
-		System.out.println("\n----- dependency injection config");
-		DependencyInjectionConfig dependencyInjectionConfig = applicationContext.getBean(DependencyInjectionConfig.class);
-		System.out.println(fakeDataSource.getUsername());
-		System.out.println(fakeDataSource.getPassword());
-		System.out.println(fakeDataSource.getJdbcurl());
+		System.out.println("\n----- application config");
+		ApplicationConfig applicationConfig = applicationContext.getBean(ApplicationConfig.class);
+		System.out.println(applicationConfig.getUsername());
+		System.out.println(applicationConfig.getPassword());
+		System.out.println(applicationConfig.getJdbcurl());
+
+		System.out.println("\n----- application constructor config");
+		ApplicationConstuctorConfig applicationConstuctorConfig = applicationContext.getBean(ApplicationConstuctorConfig.class);
+		System.out.println(applicationConstuctorConfig.getUsername());
+		System.out.println(applicationConstuctorConfig.getPassword());
+		System.out.println(applicationConstuctorConfig.getJdbcurl());
 	}
 }
