@@ -70,14 +70,24 @@ public class GreetingServiceConfig {
         return petServiceFactory.getPetService("cat");
     }
 
+//    @Bean
+//    FakeDataSource fakeDataSource(@Value("${db.username}") String username,
+//                                  @Value("${db.password}") String password,
+//                                  @Value("${db.jdbcurl}") String url) {
+//        FakeDataSource fakeDataSource = new FakeDataSource();
+//        fakeDataSource.setUsername(username);
+//        fakeDataSource.setPassword(password);
+//        fakeDataSource.setJdbcurl(url);
+//
+//        return fakeDataSource;
+//    }
+
     @Bean
-    FakeDataSource fakeDataSource(@Value("${db.username}") String username,
-                                  @Value("${db.password}") String password,
-                                  @Value("${db.jdbcurl}") String url) {
+    FakeDataSource fakeDataSource(DependencyInjectionConfig dependencyInjectionConfig) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(username);
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setJdbcurl(url);
+        fakeDataSource.setUsername(dependencyInjectionConfig.getUsername());
+        fakeDataSource.setPassword(dependencyInjectionConfig.getPassword());
+        fakeDataSource.setJdbcurl(dependencyInjectionConfig.getJdbcurl());
 
         return fakeDataSource;
     }

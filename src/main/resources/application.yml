@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: ES,dog,prod
+    active: ES,dog
 db:
   username: yml username
   password: yml pass
@@ -8,9 +8,12 @@ db:
 
 ---
 spring:
-  profiles: prod
+  config:
+    activate:
+      on-profile: prod
+#spring:
+#  profiles: prod
 db:
   username: prod yml username
   password: prod yml pass
   jdbcurl: prod yml dburl
-
