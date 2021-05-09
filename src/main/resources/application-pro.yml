@@ -1,0 +1,4 @@
+db:
+  username: pro yml username
+  password: pro yml pass
+  jdbcurl: pro yml dburl

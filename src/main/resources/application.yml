@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: ES,dog,pro
+    active: ES,dog,dev
 db:
   username: yml username
   password: yml pass
