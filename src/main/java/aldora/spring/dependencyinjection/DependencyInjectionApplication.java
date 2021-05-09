@@ -2,6 +2,7 @@ package aldora.spring.dependencyinjection;
 
 import aldora.spring.dependencyinjection.controllers.*;
 import aldora.spring.dependencyinjection.controllers.PetController;
+import aldora.spring.dependencyinjection.datasource.FakeDataSource;
 import aldora.spring.dependencyinjection.services.PrototypeBean;
 import aldora.spring.dependencyinjection.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -50,6 +51,13 @@ public class DependencyInjectionApplication {
 		System.out.println(prototypeBean1.getScope());
 		PrototypeBean prototypeBean2 = applicationContext.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getScope());
+
+
+		System.out.println("\n----- fake datasource");
+		FakeDataSource fakeDataSource = applicationContext.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcurl());
 	}
 
 }

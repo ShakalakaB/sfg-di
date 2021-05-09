@@ -1,12 +1,15 @@
 package aldora.spring.dependencyinjection.config;
 
+import aldora.spring.dependencyinjection.datasource.FakeDataSource;
 import aldora.spring.dependencyinjection.repositories.EnglishGreetingRepository;
 import aldora.spring.dependencyinjection.repositories.EnglishGreetingRepositoryImpl;
 import aldora.spring.dependencyinjection.services.*;
 import com.spring.pet.PetService;
 import com.spring.pet.PetServiceFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:dependency-injection.xml")
 @Configuration
 public class GreetingServiceConfig {
@@ -65,5 +68,17 @@ public class GreetingServiceConfig {
     @Profile("cat")
     PetService catPetService(PetServiceFactory petServiceFactory) {
         return petServiceFactory.getPetService("cat");
+    }
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${db.username}") String username,
+                                  @Value("${db.password}") String password,
+                                  @Value("${db.jdbcurl}") String url) {
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(url);
+
+        return fakeDataSource;
     }
 }
