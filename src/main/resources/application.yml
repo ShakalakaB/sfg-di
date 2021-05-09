@@ -1,7 +1,16 @@
 spring:
   profiles:
-    active: ES,dog,dev
+    active: ES,dog,prod
 db:
   username: yml username
   password: yml pass
   jdbcurl: yml dburl
+
+---
+spring:
+  profiles: prod
+db:
+  username: prod yml username
+  password: prod yml pass
+  jdbcurl: prod yml dburl
+
