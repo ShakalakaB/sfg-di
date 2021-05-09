@@ -1,0 +1,7 @@
+spring:
+  profiles:
+    active: ES,dog,pro
+db:
+  username: yml username
+  password: yml pass
+  jdbcurl: yml dburl
