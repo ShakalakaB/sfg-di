@@ -9,7 +9,7 @@ import com.spring.pet.PetServiceFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
-@EnableConfigurationProperties(ApplicationConstuctorConfig.class)
+@EnableConfigurationProperties(ApplicationConstructorConfig.class)
 @PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:dependency-injection.xml")
 @Configuration
@@ -84,11 +84,11 @@ public class GreetingServiceConfig {
 //    }
 
     @Bean
-    FakeDataSource fakeDataSource(ApplicationConstuctorConfig applicationConstuctorConfig) {
+    FakeDataSource fakeDataSource(ApplicationConstructorConfig applicationConstructorConfig) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(applicationConstuctorConfig.getUsername());
-        fakeDataSource.setPassword(applicationConstuctorConfig.getPassword());
-        fakeDataSource.setJdbcurl(applicationConstuctorConfig.getJdbcurl());
+        fakeDataSource.setUsername(applicationConstructorConfig.getUsername());
+        fakeDataSource.setPassword(applicationConstructorConfig.getPassword());
+        fakeDataSource.setJdbcurl(applicationConstructorConfig.getJdbcurl());
 
         return fakeDataSource;
     }

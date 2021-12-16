@@ -7,12 +7,12 @@ import org.springframework.context.annotation.Configuration;
 
 @ConstructorBinding
 @ConfigurationProperties("db")
-public class ApplicationConstuctorConfig {
+public class ApplicationConstructorConfig {
     private final String username;
     private final String password;
     private final String jdbcurl;
 
-    public ApplicationConstuctorConfig(String username, String password, String jdbcurl) {
+    public ApplicationConstructorConfig(String username, String password, String jdbcurl) {
         this.username = username;
         this.password = password;
         this.jdbcurl = jdbcurl;
