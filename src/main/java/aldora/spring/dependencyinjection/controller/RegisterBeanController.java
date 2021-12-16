@@ -6,6 +6,7 @@ import aldora.spring.dependencyinjection.services.beanregistration.Panda;
 import aldora.spring.dependencyinjection.services.beanregistration.Turtle;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -43,9 +44,17 @@ public class RegisterBeanController {
         GenericBeanDefinition genericBeanDefinition = new GenericBeanDefinition();
         genericBeanDefinition.setBeanClass(Cheetah.class);
         genericBeanDefinition.setPropertyValues(mutablePropertyValues);
+        genericBeanDefinition.setLazyInit(true);
 
         ((DefaultListableBeanFactory) beanFactory).registerBeanDefinition("cheetah", genericBeanDefinition);
+
+        boolean exist1 = ((DefaultListableBeanFactory) beanFactory).getSingleton("cheetah") != null;
+        System.out.println("Lazy init bean, before beanFactory.getBean method, exist or not: " + exist1);
+
         Cheetah cheetahBean = beanFactory.getBean(Cheetah.class);
+
+        boolean exist2 = ((DefaultListableBeanFactory) beanFactory).getSingleton("cheetah") != null;
+        System.out.println("Lazy init bean, after beanFactory.getBean method, exist or not: " + exist2);
 
         return cheetahBean.getAnimalName();
     }
@@ -53,7 +62,7 @@ public class RegisterBeanController {
     @GetMapping("/turtle/{property}")
     @ResponseStatus(HttpStatus.OK)
     public String registerViaBeanDefinitionBuilder(@PathVariable String property) {
-        if (beanFactory.containsBean(BEAN_NAME)) {
+        if (beanFactory.containsBean("turtle")) {
             return "sorry, turtle bean already registered";
         }
 
@@ -61,7 +70,8 @@ public class RegisterBeanController {
         mutablePropertyValues.add("animalName", property);
 
        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.rootBeanDefinition(Turtle.class)
-               .addPropertyValue("animalName", property);
+               .addPropertyValue("animalName", property)
+               .setLazyInit(true);
 
         ((DefaultListableBeanFactory) beanFactory).registerBeanDefinition("turtle", beanDefinitionBuilder.getBeanDefinition());
         Turtle turtleBean = beanFactory.getBean(Turtle.class);
