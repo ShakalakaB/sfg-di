@@ -1,13 +1,13 @@
 package aldora.spring.dependencyinjection.config;
 
-import aldora.spring.dependencyinjection.services.registerbean.AnimalBeanFactoryPostProcessor;
+import aldora.spring.dependencyinjection.services.beanregistration.LionBeanFactoryPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MyBeanConfig {
     @Bean
-    public AnimalBeanFactoryPostProcessor animalBeanFactoryPostProcessor() {
-        return new AnimalBeanFactoryPostProcessor();
+    public LionBeanFactoryPostProcessor lionBeanFactoryPostProcessor() {
+        return new LionBeanFactoryPostProcessor();
     }
 }

@@ -1,6 +1,6 @@
-package aldora.spring.dependencyinjection.services.registerbean;
+package aldora.spring.dependencyinjection.services.beanregistration;
 
-public class Animal {
+public class Lion implements Animal {
     private String animalName;
 
     public void setAnimalName(String animalName) {
