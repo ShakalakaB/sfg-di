@@ -2,7 +2,7 @@ package aldora.spring.dependencyinjection.controller;
 
 import aldora.spring.dependencyinjection.services.beanregistration.Animal;
 import aldora.spring.dependencyinjection.services.beanregistration.Cheetah;
-import aldora.spring.dependencyinjection.services.beanregistration.LionBeanFactoryPostProcessor;
+import aldora.spring.dependencyinjection.services.beanregistration.Panda;
 import aldora.spring.dependencyinjection.services.beanregistration.Turtle;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.BeanFactory;
@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class RegisterBeanController {
     private static final String BEAN_NAME = "cheetah";
     private final BeanFactory beanFactory;
+    private final Panda panda;
     private final ApplicationContext applicationContext;
 
-    public RegisterBeanController(BeanFactory beanFactory, ApplicationContext applicationContext) {
+    public RegisterBeanController(BeanFactory beanFactory, Panda panda, ApplicationContext applicationContext) {
         this.beanFactory = beanFactory;
+        this.panda = panda;
         this.applicationContext = applicationContext;
     }
 
