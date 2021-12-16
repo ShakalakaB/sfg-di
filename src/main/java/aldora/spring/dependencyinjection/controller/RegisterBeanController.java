@@ -6,8 +6,8 @@ import aldora.spring.dependencyinjection.services.beanregistration.LionBeanFacto
 import aldora.spring.dependencyinjection.services.beanregistration.Turtle;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.ApplicationContext;
@@ -71,6 +71,15 @@ public class RegisterBeanController {
     public String checkBean(@PathVariable String beanName) {
         if (beanFactory.containsBean(beanName)) {
             return ((Animal) beanFactory.getBean(beanName)).getAnimalName();
+        }
+        return "bean unbound";
+    }
+
+    @GetMapping("/remove/bean/{beanName}")
+    public String removeBean(@PathVariable String beanName) {
+        if (beanFactory.containsBean(beanName)) {
+            ((BeanDefinitionRegistry) beanFactory).removeBeanDefinition(beanName);
+            return beanName + " removed.";
         }
         return "bean unbound";
     }
