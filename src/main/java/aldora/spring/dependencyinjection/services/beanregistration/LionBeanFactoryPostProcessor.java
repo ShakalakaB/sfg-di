@@ -14,6 +14,6 @@ public class LionBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
         genericBeanDefinition.getPropertyValues().add("animalName", "lion");
 
         ((DefaultListableBeanFactory) configurableListableBeanFactory)
-                .registerBeanDefinition("animal", genericBeanDefinition);
+                .registerBeanDefinition("lion", genericBeanDefinition);
     }
 }

@@ -13,7 +13,7 @@ public class DependencyInjectionApplication {
 		ApplicationContext applicationContext = SpringApplication.run(DependencyInjectionApplication.class, args);
 
 		System.out.println("\n----- BeanFactoryPostProcessor register bean: animal");
-		Lion lion = applicationContext.getBean("animal", Lion.class);
+		Lion lion = applicationContext.getBean("lion", Lion.class);
 		System.out.println(lion.getAnimalName());
 	}
 }
