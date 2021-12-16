@@ -2,6 +2,7 @@ package aldora.spring.dependencyinjection.controller;
 
 import aldora.spring.dependencyinjection.services.beanregistration.Animal;
 import aldora.spring.dependencyinjection.services.beanregistration.Cheetah;
+import aldora.spring.dependencyinjection.services.beanregistration.LionBeanFactoryPostProcessor;
 import aldora.spring.dependencyinjection.services.beanregistration.Turtle;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.BeanFactory;
@@ -15,9 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 public class RegisterBeanController {
