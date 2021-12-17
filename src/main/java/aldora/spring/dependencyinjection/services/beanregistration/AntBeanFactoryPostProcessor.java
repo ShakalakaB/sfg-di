@@ -13,7 +13,7 @@ public class AntBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
         ((DefaultListableBeanFactory) configurableListableBeanFactory).removeBeanDefinition("ant");
 
         GenericBeanDefinition genericBeanDefinition = new GenericBeanDefinition();
-        genericBeanDefinition.setBeanClass(Lion.class);
+        genericBeanDefinition.setBeanClass(Ant.class);
         genericBeanDefinition.getPropertyValues().add("animalName", "ant from BeanFactoryPostProcessor");
 
         ((DefaultListableBeanFactory) configurableListableBeanFactory)

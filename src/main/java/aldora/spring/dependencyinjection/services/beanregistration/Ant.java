@@ -7,7 +7,7 @@ public class Ant implements Animal{
     private String animalName;
 
     public Ant() {
-        this.animalName = "ant from natural registration";
+        this.animalName = "ant from original registration";
     }
 
     @Override

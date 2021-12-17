@@ -13,7 +13,7 @@ public class AntBeanDefinitionRegistryPostProcessor implements BeanDefinitionReg
         beanDefinitionRegistry.removeBeanDefinition("ant");
 
         GenericBeanDefinition genericBeanDefinition = new GenericBeanDefinition();
-        genericBeanDefinition.setBeanClass(Monkey.class);
+        genericBeanDefinition.setBeanClass(Ant.class);
         genericBeanDefinition.getPropertyValues().add("animalName", "ant from BeanDefinitionRegistryPostProcessor");
         beanDefinitionRegistry.registerBeanDefinition("ant", genericBeanDefinition);
     }
