@@ -1,8 +1,6 @@
 package aldora.spring.dependencyinjection.config;
 
-import aldora.spring.dependencyinjection.services.beanregistration.LionBeanFactoryPostProcessor;
-import aldora.spring.dependencyinjection.services.beanregistration.MonkeyBeanDefinitionRegistryPostProcessor;
-import aldora.spring.dependencyinjection.services.beanregistration.PandaFactoryBean;
+import aldora.spring.dependencyinjection.services.beanregistration.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,6 +9,16 @@ public class MyBeanConfig {
     @Bean
     public LionBeanFactoryPostProcessor lionBeanFactoryPostProcessor() {
         return new LionBeanFactoryPostProcessor();
+    }
+
+    @Bean
+    public AntBeanDefinitionRegistryPostProcessor lionBeanDefinitionRegistryPostProcessor() {
+        return new AntBeanDefinitionRegistryPostProcessor();
+    }
+
+    @Bean
+    public AntBeanFactoryPostProcessor antBeanFactoryPostProcessor() {
+        return new AntBeanFactoryPostProcessor();
     }
 
     @Bean

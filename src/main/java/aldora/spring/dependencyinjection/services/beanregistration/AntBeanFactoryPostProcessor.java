@@ -6,23 +6,17 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 
-/**
- * <p>
- *     A BeanFactoryPostProcessor may interact with and modify bean definitions,
- * but never bean instances. Allows for custom modification of an application context's bean definitions,
- * adapting the bean property values of the context's underlying bean factory.
- * Application contexts can auto-detect BeanFactoryPostProcessor beans in their bean definitions
- * and apply them before any other beans get created.
- * </p>
- */
-public class LionBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+public class AntBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
+        // remove original bean definition
+        ((DefaultListableBeanFactory) configurableListableBeanFactory).removeBeanDefinition("ant");
+
         GenericBeanDefinition genericBeanDefinition = new GenericBeanDefinition();
         genericBeanDefinition.setBeanClass(Lion.class);
-        genericBeanDefinition.getPropertyValues().add("animalName", "lion from BeanFactoryPostProcessor");
+        genericBeanDefinition.getPropertyValues().add("animalName", "ant from BeanFactoryPostProcessor");
 
         ((DefaultListableBeanFactory) configurableListableBeanFactory)
-                .registerBeanDefinition("lion", genericBeanDefinition);
+                .registerBeanDefinition("ant", genericBeanDefinition);
     }
 }
