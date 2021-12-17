@@ -22,3 +22,5 @@ This repository start from an example application built in [Spring Framework 5 -
   - BeanDefinitionRegistryPostProcessor
   
 + [use ImportBeanDefinitionRegistrar to register a bean](https://www.cnblogs.com/binghe001/p/13150084.html)
++ `BeanFactoryPostProcessor` `BeanDefinitionRegistryPostProcessor` both can be used to change bean definition, but `BeanFactoryPostProcessor` is better because:
+> A BeanFactoryPostProcessor may interact with and modify bean definitions, but never bean instances. Allows for custom modification of an application context's bean definitions, adapting the bean property values of the context's underlying bean factory. Application contexts can auto-detect BeanFactoryPostProcessor beans in their bean definitions and apply them before any other beans get created.
