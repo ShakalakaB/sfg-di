@@ -9,6 +9,7 @@ import org.springframework.beans.factory.support.GenericBeanDefinition;
 public class AntBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry beanDefinitionRegistry) throws BeansException {
+        System.out.println("---- inside AntBeanDefinitionRegistryPostProcessor");
         // remove original bean definition
         beanDefinitionRegistry.removeBeanDefinition("ant");
 

@@ -12,7 +12,7 @@ public class MyBeanConfig {
     }
 
     @Bean
-    public AntBeanDefinitionRegistryPostProcessor lionBeanDefinitionRegistryPostProcessor() {
+    public AntBeanDefinitionRegistryPostProcessor AntBeanDefinitionRegistryPostProcessor() {
         return new AntBeanDefinitionRegistryPostProcessor();
     }
 

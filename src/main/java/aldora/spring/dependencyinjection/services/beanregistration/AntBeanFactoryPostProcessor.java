@@ -9,6 +9,7 @@ import org.springframework.beans.factory.support.GenericBeanDefinition;
 public class AntBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
+        System.out.println("---- inside AntBeanFactoryPostProcessor");
         // remove original bean definition
         ((DefaultListableBeanFactory) configurableListableBeanFactory).removeBeanDefinition("ant");
 

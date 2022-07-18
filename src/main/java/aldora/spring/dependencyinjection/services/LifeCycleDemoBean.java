@@ -81,9 +81,4 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
     public void destroy() throws Exception {
         System.out.println("## 10. The Lifecycle bean has been terminated");
     }
-
-
-
-
-
 }
