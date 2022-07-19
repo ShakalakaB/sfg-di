@@ -11,7 +11,7 @@ This repository start from an example application built in [Spring Framework 5 -
 + How to solve injection conflicts of multiple implementation of an interface: `@Qualifier`,**`@Profile`**.
 + Use file: `application.properties`, `application.yml`, `datasource.properties` to bind data
 
-#### Bean Registration(dynamic-bean-registration branch)
+#### Bean Registration(branch: dynamic-bean-registration, file: "DependencyInjectionApplication")
 + [main ways to create bean](https://codippa.com/how-to-create-bean-in-spring/)
 + [factory bean](https://www.baeldung.com/spring-factorybean)
 + [four ways to dynamically register a bean](https://www.javaprogramto.com/2019/07/spring-dynamically-register-beans.html)
@@ -19,6 +19,7 @@ This repository start from an example application built in [Spring Framework 5 -
   - BeanDefinitionBuilder
   - BeanFactoryPostProcessor
   - BeanDefinitionRegistryPostProcessor
++ [Instantiating Multiple Beans of the Same Class](https://www.baeldung.com/spring-same-class-multiple-beans)
   
 + [use ImportBeanDefinitionRegistrar to register a bean](https://www.cnblogs.com/binghe001/p/13150084.html)
 + `BeanFactoryPostProcessor` `BeanDefinitionRegistryPostProcessor` both can be used to change bean definition, but `BeanFactoryPostProcessor` is better because:
@@ -26,4 +27,5 @@ This repository start from an example application built in [Spring Framework 5 -
 
 #### Dynamically Autowire a Bean
 + [dynamically autowire a bean](https://www.baeldung.com/spring-dynamic-autowire)
+
 
