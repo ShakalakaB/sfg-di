@@ -10,9 +10,12 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component
-public class LifeCycleDemoBean implements InitializingBean, DisposableBean, BeanNameAware,
-        BeanFactoryAware, ApplicationContextAware {
-
+public class LifeCycleDemoBean implements
+        InitializingBean,
+        DisposableBean,
+        BeanNameAware,
+        BeanFactoryAware,
+        ApplicationContextAware {
 
     public LifeCycleDemoBean() {
         System.out.println("## 1. I'm in the LifeCycleBean Constructor");
@@ -45,12 +48,12 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
     /**
      * {@link LifeCycleDemoBeanPostProcessor}
      */
-    public void beforeInit(){
-        System.out.println("## 5. Before Init - Called by BeanPostProcessor: LifeCycleDemoBeanPostProcessor");
+    public void beforeInit() {
+        System.out.println("## 5. Before Init called by BeanPostProcessor: LifeCycleDemoBeanPostProcessor");
     }
 
     @PostConstruct
-    public void postConstruct(){
+    public void postConstruct() {
         System.out.println("## 6. The Post Construct annotated method has been called");
     }
 
@@ -65,7 +68,7 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
     /**
      * {@link LifeCycleDemoBeanPostProcessor}
      */
-    public void afterInit(){
+    public void afterInit() {
         System.out.println("## 8. After init called by Bean Post Processor");
     }
 
